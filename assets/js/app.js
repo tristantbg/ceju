@@ -34,7 +34,7 @@ $(function() {
                     $(".loader").fadeOut("300", function() {
                         setTimeout(function() {
                             $('#intro').fadeOut("300");
-                        }, 4000);
+                        }, 3000);
                     });
                     if (window.location.hash) {
                         var anchor = document.querySelector(window.location.hash);
