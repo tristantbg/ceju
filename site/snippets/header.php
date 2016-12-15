@@ -72,10 +72,11 @@
 
 <div id="intro"><span class="ttu"><?= $site->title()->html() ?></span></div>
 
-<header>
+<header <?php if ($page->isHomepage()){echo 'data-home';} ?>>
 	<div class="site-title">
-		<span class="ttu"><?= $site->title()->html() ?></span>
+		<span class="ttu"><a href="<?= $site->url() ?>"><?= $site->title()->html() ?></a></span>
 	</div>
+	<?php if ($page->isHomepage()): ?>
 	<div class="menu">
 			<span>
   				<a class="section-link" href="#<?= tagslug('à propos') ?>">À propos</a>
@@ -113,6 +114,7 @@
   				<a class="section-link" href="#<?= tagslug($page->ttitle()) ?>"><?= $page->ttitle()->html() ?></a>
   			</span>
 	</div>
+	<?php endif ?>
 </header>
 
 <div id="container">
