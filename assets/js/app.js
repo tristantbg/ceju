@@ -23,19 +23,24 @@ $(function() {
                 $('#intro').click(function(event) {
                     $(this).fadeOut("300");
                 });
+                smoothScroll.init({
+                    selector: '.section-link', // Selector for links (must be a class, ID, data attribute, or element tag)
+                    selectorHeader: 'header', // Selector for fixed headers (must be a valid CSS selector) [optional]
+                    speed: 1000, // Integer. How fast to complete the scroll in milliseconds
+                    offset: 5,
+                    easing: 'easeInOutCubic', // Easing pattern to use
+                });
                 $(window).load(function() {
                     $(".loader").fadeOut("300", function() {
                         setTimeout(function() {
                             $('#intro').fadeOut("300");
                         }, 4000);
                     });
-                    smoothScroll.init({
-                        selector: '.section-link', // Selector for links (must be a class, ID, data attribute, or element tag)
-                        selectorHeader: 'header', // Selector for fixed headers (must be a valid CSS selector) [optional]
-                        speed: 1000, // Integer. How fast to complete the scroll in milliseconds
-                        offset: 5,
-                        easing: 'easeInOutCubic', // Easing pattern to use
-                    });
+                    if (window.location.hash) {
+                        var anchor = document.querySelector(window.location.hash);
+                        var toggle = document.querySelector('a[href*="' + window.location.hash + '"]');
+                        smoothScroll.animateScroll(anchor, toggle);
+                    }
                 });
             });
         },
