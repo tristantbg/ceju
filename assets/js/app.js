@@ -8,15 +8,6 @@ $(function() {
             $(window).resize(function(event) {});
             $(document).ready(function($) {
                 $body = $('body');
-                History.Adapter.bind(window, 'statechange', function() {
-                    var State = History.getState();
-                    console.log(State);
-                    var content = State.data;
-                    if (content.type == 'project') {
-                        $body.addClass('project loading');
-                        app.loadContent(State.url + '/ajax', slidecontainer);
-                    }
-                });
                 //esc
                 $(document).keyup(function(e) {
                     if (e.keyCode === 27) app.goIndex();
@@ -29,8 +20,22 @@ $(function() {
                 $(document).keyup(function(e) {
                     if (e.keyCode === 39 && $slider) app.goNext($slider);
                 });
+                $('#intro').click(function(event) {
+                    $(this).fadeOut("300");
+                });
+                smoothScroll.init({
+                    selector: '.section-link', // Selector for links (must be a class, ID, data attribute, or element tag)
+                    selectorHeader: 'header', // Selector for fixed headers (must be a valid CSS selector) [optional]
+                    speed: 1000, // Integer. How fast to complete the scroll in milliseconds
+                    offset: 5,
+                    easing: 'easeInOutCubic', // Easing pattern to use
+                });
                 $(window).load(function() {
-                    $(".loader").fadeOut("fast");
+                    $(".loader").fadeOut("300", function() {
+                        setTimeout(function() {
+                            $('#intro').fadeOut("300");
+                        }, 4000);
+                    });
                 });
             });
         },
@@ -43,11 +48,6 @@ $(function() {
                     //location.reload();
                 }
             }
-        },
-        goIndex: function() {
-            History.pushState({
-                type: 'index'
-            }, $sitetitle, window.location.origin + $root);
         },
         loadContent: function(url, target) {
             $.ajax({

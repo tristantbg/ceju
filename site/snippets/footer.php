@@ -1,3 +1,9 @@
+</div>
+
+<footer class="tac">
+	<small><?= $site->footer()->kt() ?></small>
+</footer>
+
 <?php if(!$site->googleanalytics()->empty()): ?>
   <!-- Google Analytics-->
   <script>

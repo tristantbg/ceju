@@ -69,3 +69,50 @@
 <body>
 
 <div class="loader"></div>
+
+<div id="intro"><span class="ttu"><?= $site->title()->html() ?></span></div>
+
+<header>
+	<div class="site-title">
+		<span class="ttu"><?= $site->title()->html() ?></span>
+	</div>
+	<div class="menu">
+			<span>
+  				<a class="section-link" href="#<?= tagslug('à propos') ?>">À propos</a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug('pour qui?') ?>">Pour qui?</a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug($page->s2title()) ?>"><?= $page->s2title()->html() ?></a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug($page->s3title()) ?>"><?= $page->s3title()->html() ?></a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug($page->s4title()) ?>"><?= $page->s4title()->html() ?></a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug($page->s5title()) ?>"><?= $page->s5title()->html() ?></a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug($page->s6title()) ?>"><?= $page->s6title()->html() ?></a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug($page->ctitle()) ?>"><?= $page->ctitle()->html() ?></a>
+  			</span>
+
+  			<span>
+  				<a class="section-link" href="#<?= tagslug($page->ttitle()) ?>"><?= $page->ttitle()->html() ?></a>
+  			</span>
+	</div>
+</header>
+
+<div id="container">
