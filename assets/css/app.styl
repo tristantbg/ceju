@@ -3,7 +3,7 @@
 @import '_mixins.styl'
 
 // Media queries
-$xl = 1439px
+$xl = 1600px
 $lg = 1260px
 $md = 1023px
 $sm = 767px
@@ -116,6 +116,7 @@ table.index
 .colorize
 	position relative
 	display block
+	background $primary
 	img
 		border 1px solid $secondary
 		mix-blend-mode multiply
@@ -173,6 +174,8 @@ a, a:hover, a:visited, a:focus
 		font-size 3vw
 		+below($sm)
 			font-size 2.6rem
+		+above($xl)
+			font-size 2vw
 
 header
 	position fixed
